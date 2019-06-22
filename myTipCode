@@ -1,0 +1,275 @@
+HTML
+<!-- Loading page will feature a flashing green upside down question mark -->
+
+<!-- first Page -->
+
+<main id="main">
+ <h1>Welcome to myTip</h1>
+  <div id="form-outer">
+    <p id="description">
+      A calculator for giving tips across the world</p>
+    <div class="labels">
+      <label id="name-label" for="Bill">Enter your Bill: </label>
+    </div>
+    <div class="rightTab">
+      <input autofocus type="number" name="bill" id="bill" class="input-field" placeholder="Enter your bill" required>
+    </div>
+  </div>
+  
+  <!-- drop down menu -->
+  
+<!-- edit the following to retrieve arrays stored in javascript:-->
+<form id="dropdown">
+<select id="dropdown">
+    <option>Select your current country:</option>
+    <script>
+        var country = ("Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Antigua and Barbuda", "Argentina", "Armenia", "Australia", "Austria", "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bhutan", "Bolivia", "Bosnia and Herzegovina", "Botswana", "Brazil", "Brunei", "Bulgaria", "Burkina Faso", "Burundi", "Cabo Verde", "Cambodia", "Cameroon", "Canada", "Central African Republic", "Chad", "Chile", "China", "Colombia", "Comoros", "Democratic Republic of the Congo", "Costa Rica", "Cote d'Ivoire" , "Croatia", "Cuba", "Cyprus", "Czechia", "Denmark", "Djibouti", "Dominica", "Dominican Republic", "Ecuador", "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea", "Estonia", "Eswatini", "Ethiopia", "Fiji", "Finland", "France", "Gabon", "Gambia", "Georgia", "Germany", "Ghana", "Greece", "Grenada", "Guatemala", "Guinea", "Guinea-Bissau", "Guyana", "Haiti", "Honduras", "Hungary", "Iceland", "India", "Indonesia", "Iran", "Iraq", "Ireland", "Israel", "Italy", "Jamaica", "Japan", "Jordan", "Kazakhstan", "Kenya", "Kiribati", "Kosovo", "Kuwait", "Kyrgyzstan", "Laos", "Latvia", "Lebanon", "Lesotho", "Liberia", "Libya", "Liechtenstein", "Lithuania", "Luxembourg", "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Marshall Islands", "Mauritania", "Mauritius", "Mexico", "Micronesia", "Moldova", "Monaco", "Mongolia", "Montenegro", "Morocco", "Mozambique", "Myanmar", "Namibia", "Nauru", "Nepal", "Netherlands", "New Zealand", "Nicaragua", "Niger", "Nigeria", "North Korea", "North Macedonia", "Norway", "Oman", "Pakistan", "Palau", "Palestine", "Panama", "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Poland", "Portugal", "Qatar", "Republic of the Congo", "Romania", "Russia", "Rwanda", "Saint Kitts and Nevis", "Saint Lucia", "Saint Vincent and the Grenadines", "Samoa", "San Marino", "Sao Tome and Principe", "Saudi Arabia", "Senegal", "Serbia", "Seychelles", "Sierra Leone", "Singapore", "Slovakia", "Slovenia", "Solomon Islands", "Somalia","South Africa", "South Korea", "South Sudan", "Spain", "Sri Lanka", "Sudan", "Suriname", "Sweden", "Switzerland", "Syria", "Taiwan", "Tajikistan", "Tanzania", "Thailand", "Timor-Leste", "Togo", "Tonga", "Trinidad and Tobago", "Tunisia", "Turkey", "Turkmenistan", "Tuvalu, Uganda", "Ukraine", "United Arab Emirates", "United Kingdom", "United States of America", "Uruguay", "Uzbekistan", "Vanuatu", "Vatican City", "Venezuela", "Vietnam", "Yemen", "Zambia", "Zimbabwe");
+        for(i=0; i<myArray.length; i++) {  
+            document.write('<option value="' + country[i] +'">' + country[i] + '</option>');
+        }
+    </script>
+</select>
+</form>
+
+  <!-- currency should be displayed after country has been selected -->
+
+ 
+  <!-- user input box here -->
+
+  <!-- Second Page -->
+<!--clickable button--><button id="submit" type="submit">Generate myTip</button>
+  <h1>Your expected tip is</h1>
+
+  <!-- display expected tip here and remember to link currency to selected country -->
+  <button id="submit" type="submit">Generate a new tip</button>
+</main>
+
+CSS
+main {
+  background: linear-gradient(
+    13deg,
+    rgba(81, 9, 121, 1) 35%,
+    rgba(232, 255, 0, 1) 100%
+  );
+}
+
+Javascript
+
+/*full country list:*/ /*all countries are objects*/
+var country = ("Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Antigua and Barbuda", "Argentina", "Armenia", "Australia", "Austria", "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bhutan", "Bolivia", "Bosnia and Herzegovina", "Botswana", "Brazil", "Brunei", "Bulgaria", "Burkina Faso", "Burundi", "Cabo Verde", "Cambodia", "Cameroon", "Canada", "Central African Republic", "Chad", "Chile", "China", "Colombia", "Comoros", "Democratic Republic of the Congo", "Costa Rica", "Cote d'Ivoire" , "Croatia", "Cuba", "Cyprus", "Czechia", "Denmark", "Djibouti", "Dominica", "Dominican Republic", "Ecuador", "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea", "Estonia", "Eswatini", "Ethiopia", "Fiji", "Finland", "France", "Gabon", "Gambia", "Georgia", "Germany", "Ghana", "Greece", "Grenada", "Guatemala", "Guinea", "Guinea-Bissau", "Guyana", "Haiti", "Honduras", "Hungary", "Iceland", "India", "Indonesia", "Iran", "Iraq", "Ireland", "Israel", "Italy", "Jamaica", "Japan", "Jordan", "Kazakhstan", "Kenya", "Kiribati", "Kosovo", "Kuwait", "Kyrgyzstan", "Laos", "Latvia", "Lebanon", "Lesotho", "Liberia", "Libya", "Liechtenstein", "Lithuania", "Luxembourg", "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Marshall Islands", "Mauritania", "Mauritius", "Mexico", "Micronesia", "Moldova", "Monaco", "Mongolia", "Montenegro", "Morocco", "Mozambique", "Myanmar", "Namibia", "Nauru", "Nepal", "Netherlands", "New Zealand", "Nicaragua", "Niger", "Nigeria", "North Korea", "North Macedonia", "Norway", "Oman", "Pakistan", "Palau", "Palestine", "Panama", "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Poland", "Portugal", "Qatar", "Republic of the Congo", "Romania", "Russia", "Rwanda", "Saint Kitts and Nevis", "Saint Lucia", "Saint Vincent and the Grenadines", "Samoa", "San Marino", "Sao Tome and Principe", "Saudi Arabia", "Senegal", "Serbia", "Seychelles", "Sierra Leone", "Singapore", "Slovakia", "Slovenia", "Solomon Islands", "Somalia","South Africa", "South Korea", "South Sudan", "Spain", "Sri Lanka", "Sudan", "Suriname", "Sweden", "Switzerland", "Syria", "Taiwan", "Tajikistan", "Tanzania", "Thailand", "Timor-Leste", "Togo", "Tonga", "Trinidad and Tobago", "Tunisia", "Turkey", "Turkmenistan", "Tuvalu, Uganda", "Ukraine", "United Arab Emirates", "United Kingdom", "United States of America", "Uruguay", "Uzbekistan", "Vanuatu", "Vatican City", "Venezuela", "Vietnam", "Yemen", "Zambia", "Zimbabwe");
+
+
+/*Tip percentages for each country: 
+"Afghanistan", 
+"Albania", 
+"Algeria", 
+"Andorra", 
+"Angola, 
+Antigua and Barbuda, 
+Argentina-10%, 
+Armenia, 
+Australia-no need to tip, 
+Austria-5%, 
+Azerbaijan, 
+Bahamas-10%,
+Bahrain,
+Bangladesh-5%,
+Barbados-10%,
+Belarus,
+Belgium-no need to tip,
+Belize-15%,
+Benin,
+Bhutan,
+Bolivia,
+Bosnia and Herzegovina,
+Botswana,
+Brazil,
+Brunei,
+Bulgaria-10%,
+Burkina Faso,
+Burundi,
+Cabo Verde,
+Cambodia-5%,
+Cameroon,
+Canada-15%,
+Central African Republic,
+Chad,
+Chile-10%,
+China-don't tip,
+Colombia-no need to tip,
+Comoros,
+Costa Rica-10%,
+Cote d'Ivoire, Croatia -10%,
+Cuba-10%,
+Cyprus-no need to tip,
+Czechia-10%,Democratic Republic of the Congo,
+Denmark-Tip included,
+Djibouti,
+Dominica,
+Dominican Republic-10%,
+Ecuador-5%,
+Egypt-10%,
+El Salvador,
+Equatorial Guinea,
+Eritrea,
+Estonia,
+Eswatini,
+Ethiopia,
+Fiji-no tip,
+Finland-round up your bill,
+France-no need to tip,
+Gabon,
+Gambia,
+Georgia-no tip required,
+Germany-10%,
+Ghana,
+Greece-5%,
+Grenada,
+Guatemala,
+Guinea,
+Guinea-Bissau,
+Guyana,
+Haiti,
+Honduras,
+Hong Kong-do not tip,
+Hungary-10%,
+Iceland-10%,
+India-10%,
+Indonesia-5%,
+Iran,
+Iraq,
+Ireland-10%,
+Israel-10%,
+Italy-No need to tip,
+Jamaica-no need to tip,
+Japan,
+Jordan-5%,
+Kazakhstan,
+Kenya- 10%,
+Kiribati,
+Kosovo,
+Kuwait,
+Kyrgyzstan,
+Laos,
+Latvia,
+Lebanon,
+Lesotho,
+Liberia,
+Libya,
+Liechtenstein,
+Lithuania,
+Luxembourg,
+Madagascar-10%,
+Malawi,
+Malaysia-no need to tip,
+Maldives-round up or leave the change,
+Mali,
+Malta-5%,
+Marshall Islands,
+Mauritania,
+Mauritius-10%,
+Mexico-10%,
+Micronesia,
+Moldova,
+Monaco-15%,
+Mongolia,
+Montenegro,
+Morocco-10%,
+Mozambique,
+Myanmar,
+Namibia,
+Nauru,
+Nepal-5%,
+Netherlands-5%,
+New Zealand-no need to tip,
+Nicaragua,
+Niger,
+Nigeria,
+North Korea,
+North Macedonia,
+Norway-no need to tip,
+Oman,
+Pakistan-10%,
+Palau,
+Palestine,
+Panama-10%,
+Papua New Guinea,
+Paraguay,
+Peru-10%,
+Philippines-10%,
+Poland-10%,
+Portugal-no need to tip,
+Qatar-10%,
+Republic of the Congo, Romania-10%,
+Russia-10%,
+Rwanda,
+Saint Kitts and Nevis,
+Saint Lucia,
+Saint Vincent and the Grenadines,
+Samoa-no need to tip,
+San Marino,
+Sao Tome and Principe,
+Saudi Arabia-10%,
+Senegal,
+Serbia,
+Seychelles,
+Sierra Leone,
+Singapore-10%,
+Slovakia,
+Slovenia,
+Solomon Islands,
+Somalia,
+South Africa-10%,
+South Korea-no need to tip,
+South Sudan,
+Spain-10%,
+Sri Lanka-10%,
+Sudan,
+Suriname,
+Sweden-5%,
+Switzerland-no need to tip,
+Syria,
+Taiwan-10%,
+Tajikistan,
+Tanzania-5%,
+Thailand-10%,
+Timor-Leste,
+Togo,
+Tonga-no need to tip,
+Trinidad and Tobago,
+Tunisia-10%,
+Turkey-5%, Turkmenistan, Tuvalu, Uganda,Ukraine-10%, United Arab Emirates, United Kingdom-no tip is required, United States of America- 15%, Uruguay, Uzbekistan, Vanuatu, Vatican City, Venezuela, Vietnam-5%, Yemen, Zambia, Zimbabwe
+*/
+/*formula for expected tip: country rate * bill - bill */
+/*for countries without tip amount, print: tip information is not yet available for this country*/
+/*Additional rules: 
+for Denmark print: no tip is required
+for Fiji print: no tip is required
+for Maldives print: round up or leave the change
+for New Zealand print: no tip is required
+for China print: do not tip
+for Columbia print:no tip is required
+for Finland print: round up the bill
+for Italy print: do not tip
+for Norway print: no tip is required
+for Australia print: no tip is required
+for Austria print: no tip is required
+for Georgia print:no tip is required
+for Malaysia print:no tip is required
+for Portugal print:no tip is required
+for Samoa print:no tip is required
+for South Korea print:no tip is required
+for Switzerland print:no tip is required
+for Tonga print:no tip is required
+for United Kingdom print:no tip is required
+for Jamaica print:no tip is required
+for Hong Kong print:do not tip
+for France print:no tip is required
+for Cyprus print:no tip is required*/
+
+/*content checklist:
+Currency is always linked to country
+bill must be a number, not a string and is allowed unlimited figures, but only 2 decimals
+BOTH country and Bill amount need to have a value before the tip can be generated
+
+*/
